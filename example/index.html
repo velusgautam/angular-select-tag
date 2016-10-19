@@ -1,11 +1,46 @@
 <html>
-    <head>
-        <script src="app/app.js"></script>
-        <script src="app/controller.js"></script>
-    </head>
+
+<head>
+    <title>Angular Select with Search</title>
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../dist/css/select2.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+	<script src="vendor/jQuery.js"></script>
+	<script src="vendor/bootstrap.min.js"></script>
+
+    <script src="../dist/js/select.js"></script>
+
+	<script src="app/app.js"></script>
+	<script src="app/controller.js"></script>
+
+	
+</head>
+
 <body ng-app="angular-select">
-    <div ng-controller="selectCont">
-        {{hello}}
-    </div>
+	<div ng-controller="selectController">
+
+		<div class="panel-body">
+			<h4> Selections</h4>
+			<ul class="list-group">
+				<li class="list-group-item">
+					<p class="filterName">Select : </p>
+					<div class="dropdown">
+						<ui-select class="select-dropdown" ng-model="modelData" search-enabled="true" theme="select2" title="Choose an Option">
+							<ui-select-match placeholder="Select an Option">{{$select.selected}}</ui-select-match>
+							<ui-select-choices repeat="option in data | filter: $select.search">
+								<div ng-bind-html="option | highlight: $select.search"></div>
+							</ui-select-choices>
+						</ui-select>
+
+					</div>
+				</li>
+			</ul>
+		</div>
+
+
+	</div>
 </body>
+
 </html>

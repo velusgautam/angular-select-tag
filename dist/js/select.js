@@ -128,7 +128,7 @@ var uis = angular.module('ui.select', [])
 })
 
 // Recreates old behavior of ng-transclude. Used internally.
-.directive('uT', function () {
+.directive('selectOption', function () {
   return {
     link: function (scope, element, attrs, ctrl, transclude) {
         transclude(scope, function (clone) {
@@ -222,7 +222,7 @@ uis.directive('uiSelectChoices',
       if (rowsInner.length !== 1) {
         throw uiSelectMinErr('rows', "Expected 1 .usr but got '{0}'.", rowsInner.length);
       }
-      rowsInner.attr('u-t', ''); //Adding uisTranscludeAppend directive to row element after choices element has ngRepeat
+      rowsInner.attr('select-option', ''); //Adding uisTranscludeAppend directive to row element after choices element has ngRepeat
 
       // If IE8 then need to target rowsInner to apply the ng-click attr as choices will not capture the event. 
       var clickTarget = $window.document.addEventListener ? choices : rowsInner;
@@ -1829,6 +1829,7 @@ uis.directive('uiSelectNoChoice',
             }
         };
     }]);
+
 uis.directive('uiSelectSingle', ['$timeout','$compile', function($timeout, $compile) {
   return {
     restrict: 'EA',
@@ -2214,10 +2215,6 @@ uis.service('uisRepeatParser', ['uiSelectMinErr','$parse', function(uiSelectMinE
 
 }());
 angular.module("ui.select").run(["$templateCache", function($templateCache) {
-
-//  $templateCache.put("select2/choices.tpl.html","<ul tabindex=\"-1\" class=\"ui-select-choices u-s-c-content select2-results\"><li class=\"u-s-c-group\" ><ul role=\"listbox\" id=\"u-s-c-{{ $select.generatedId }}\"><li role=\"option\" ng-attr-id=\"s-r-{{ $select.generatedId }}-{{$index}}\" class=\"s-r\" ng-class=\"{\'s2-h\': $select.isActive(this), \'s2-d\': $select.isDisabled(this)}\"><div class=\"srl usr\"></div></li></ul></li></ul>");
-
-
 
  $templateCache.put("select2/choices.tpl.html","<ul tabindex=\"-1\" class=\"ui-select-choices u-s-c-content select2-results\"><li class=\"u-s-c-group\" ><ul role=\"listbox\" id=\"u-s-c-{{ $select.generatedId }}\"><li role=\"option\" ng-attr-id=\"s-r-{{ $select.generatedId }}-{{$index}}\" class=\"s-r\" ng-class=\"{\'s2-h\': $select.isActive(this)}\"><div class=\"srl usr\"></div></li></ul></li></ul>");
 

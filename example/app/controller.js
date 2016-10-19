@@ -2,10 +2,10 @@
   'use strict'
 
   angular
-    .module('select')
+    .module('angular-select')
     .controller('selectController', selectController);
 
-  selectController.$inject = ['$scope'];
+  selectController.$inject = ['$scope',];
 
   function selectController ($scope) {
     var vm = this;
@@ -14,7 +14,8 @@
     activate()
 
     function activate () {
-      $scope.hello = "hello"
+      $scope.data = ["Saab", "Volvo", "BMW","mmm","aa","ooo"];
+      $scope.modelData = "Saab";
     }
   }
 })()
