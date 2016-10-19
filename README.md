@@ -16,8 +16,12 @@ I selected this because of below reasons.
 
 ## This is the base of this select tag. 
 
-AngularJS-native version of [Select2](http://ivaynberg.github.io/select2/) 
-[Selectize](http://brianreavis.github.io/selectize.js/). [http://angular-ui.github.io/ui-select/](http://angular-ui.github.io/ui-select/)
+AngularJS-native version of [Select2](http://ivaynberg.github.io/select2/)
+
+[Selectize](http://brianreavis.github.io/selectize.js/).
+
+[http://angular-ui.github.io/ui-select/](http://angular-ui.github.io/ui-select/)
+
 ui-select (https://github.com/angular-ui/ui-select)
 
 ## Features
